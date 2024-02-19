@@ -1,0 +1,203 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/python
+{
+    "name": "c3-devcontainer",
+    "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+    // // Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
+    "build": {
+        "context": "..",
+        "dockerfile": "Dockerfile",
+        "args": {
+            "VARIANT": "3.10",
+            "PYPACKAGE": "requirements.txt",
+            "BUILDKIT_INLINE_CACHE": "0"
+        }
+    },
+    //"dockerComposeFile": "docker-compose.yaml",
+    "service": "python",
+    // "shutdownAction": "stopCompose",
+    // Set *default* container specific settings.json values on container create.
+    "settings": {
+        //Theme 
+        "workbench.iconTheme": "bearded-icons",
+        "workbench.colorTheme": "Tokyo Night Pro",
+        "workbench.editor.enablePreview": false,
+        "workbench.startupEditor": "welcomePageInEmptyWorkbench",
+        "workbench.editor.wrapTabs": false,
+        //Editor
+        "diffEditor.renderSideBySide": true,
+        "diffEditor.ignoreTrimWhitespace": false,
+        "editor.fontLigatures": true,
+        "window.zoomLevel": 1,
+        "editor.fontSize": 16,
+        "editor.fontWeight": "420",
+        "editor.formatOnSave": true,
+        "editor.formatOnSaveMode": "file",
+        "editor.wordWrap": "on",
+        "editor.tabSize": 4,
+        "editor.bracketPairColorization.enabled": true,
+        "editor.guides.bracketPairs": "active",
+        "editor.suggest.shareSuggestSelections": true,
+        "editor.suggestSelection": "first",
+        "editor.minimap.enabled": false,
+        "editor.foldingStrategy": "indentation",
+        "editor.showFoldingControls": "always",
+        "editor.rulers": [
+            80
+        ],
+        "[markdown]": {
+            "editor.formatOnSave": true,
+            "editor.formatOnPaste": true
+        },
+        "editor.codeActionsOnSave": {
+            "source.fixAll.markdownlint": true
+        },
+        //Terminal
+        "debug.terminal.clearBeforeReusing": true,
+        "terminal.integrated.shell.linux": "/bin/zsh",
+        "terminal.integrated.fontFamily": "monospace",
+        "terminal.integrated.fontSize": 14,
+        "terminal.integrated.cursorStyle": "line",
+        "terminal.integrated.copyOnSelection": true,
+        "terminal.integrated.confirmOnExit": "never",
+        //Python
+        "python.analysis.typeCheckingMode": "basic",
+        // "python.linting.pylintEnabled": true,
+        // "python.linting.enabled": true,
+        "python.formatting.provider": "black",
+        "python.formatting.blackArgs": [
+            "--line-length=79"
+        ],
+        "python.testing.unittestEnabled": false,
+        "python.testing.pytestEnabled": true,
+        "python.dataScience.askForKernelRestart": false,
+        "python.dataScience.runStartupCommands": "%load_ext autoreload\\n%autoreload 2",
+        "python.dataScience.sendSelectionToInteractiveWindow": true,
+        "python.dataScience.useNotebookEditor": false,
+        //Other extensions
+        "autoDocstring.docstringFormat": "google",
+        "autoDocstring.includeExtendedSummary": true,
+        "autoDocstring.startOnNewLine": true,
+        "autoDocstring.guessTypes": true,
+        "jupyter.sendSelectionToInteractiveWindow": true,
+        "jupyter.interactiveWindowMode": "perFile",
+        "notebook.cellToolbarLocation": {
+            "default": "right",
+            "jupyter-notebook": "left"
+        },
+        "path-autocomplete.pathMappings": {
+            "/": "/",
+            "./": "${folder}"
+        },
+        "explorer.confirmDelete": false,
+        "explorer.confirmDragAndDrop": false,
+        "files.associations": {},
+        "files.autoSave": "off",
+        "files.exclude": {
+            "**/.git": true,
+            "**/.svn": true,
+            "**/.hg": true,
+            "**/CVS": true,
+            "**/.DS_Store": true,
+            "**/.history/**": true,
+            "**/History_**": true
+        },
+        "code-runner.clearPreviousOutput": true,
+        //Markdown
+        "markdownlint.config": {
+            "MD007": false,
+            "MD013": false
+        },
+        "docwriter.style": "NumPy",
+        "git.autofetch": true,
+        "git.confirmSync": false,
+        "better-comments.tags": [
+            {
+                "tag": "?",
+                "color": "#8f5785",
+                "strikethrough": false,
+                "backgroundColor": "transparent"
+            }
+            {
+                "tag": "*",
+                "color": "#69a800",
+                "strikethrough": false,
+                "backgroundColor": "transparent"
+            }
+        ],
+        // User words to add to dictionary. 
+        "cSpell.userWords": [
+            "YYYYMMDD",
+            "groupby",
+            "idxmax",
+            "inplace",
+            "itertools",
+            "multindex",
+            "rfind",
+            "strptime",
+            "dataframe"
+        ]
+    },
+    // Add the IDs of extensions you want installed when the container is created.
+    "extensions": [
+        // Icon and color Themes
+        "marnix.tokyo-night-pro",
+        "beardedbear.beardedicons",
+        // Python Enhancements - Code Formating
+        "ms-python.python",
+        "njpwerner.autodocs",
+        "njqdev.vscode-python-typehint",
+        "almenon.arepl",
+        "ms-toolsai.jupyter",
+        "njpwerner.autodocstring",
+        "ms-python.vscode-pylance",
+        "kevinrose.vsc-python-indent",
+        "stkb.rewrap",
+        // Markdown Enhancements
+        "yzhang.markdown-all-in-one",
+        "yzhang.dictionary-completion",
+        "bat67.markdown-extension-pack",
+        "DavidAnson.vscode-markdownlint",
+        // Quality of life Extensions
+        "ionutvmi.path-autocomplete",
+        "phil294.git-log--graph",
+        "huizhou.githd",
+        "bungcip.better-toml",
+        "bierner.markdown-mermaid",
+        "mintlify.document",
+        "formulahendry.code-runner",
+        "xyz.local-history",
+        // Editor Visual Aids
+        "spywhere.guides",
+        "wayou.vscode-todo-highlight",
+        "oderwat.indent-rainbow",
+        // Development Aids
+        "aaron-bond.better-comments",
+        "Gruntfuggly.todo-tree",
+        "mikestead.dotenv",
+        "streetsidesoftware.code-spell-checker",
+        // File Viewer Tools
+        "jithurjacob.nbpreviewer",
+        "GrapeCity.gc-excelviewer",
+        "tomoki1207.pdf",
+        "dotjoshjohnson.xm",
+        "jeff-hykin.simple-csv-syntax",
+        "dendron.dendron",
+        "dendron.dendron-markdown-shortcuts"
+    ],
+    // Features to add to the dev container. More info: https://containers.dev/features.
+    // "features": {},
+    // Use 'forwardPorts' to make a list of ports inside the container available locally.
+    // "forwardPorts": [],
+    // Use 'postCreateCommand' to run commands after the container is created.
+    // "postCreateCommand": "poetry config virtualenvs.create false",
+    "postStartCommand": "git config --global --add safe.directory ${containerWorkspaceFolder}",
+    // Configure tool-specific properties.
+    // "customizations": {},
+    // Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+    "remoteUser": "vscode",
+    "remoteEnv": {
+        "PATH": "${containerEnv:PATH}:${containerWorkspaceFolder}",
+        "PYTHONPATH": "${containerEnv:PYTHONPATH}:${containerWorkspaceFolder}/src:${containerWorkspaceFolder}/src/c3"
+    }
+}
